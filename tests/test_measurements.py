@@ -1,6 +1,6 @@
 import unittest
 
-import Benchmark.src.measurements
+import src.measurements
 
 class TestMeasureLoadingTime(unittest.TestCase):
     pass
