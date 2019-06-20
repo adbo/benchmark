@@ -1,3 +1,4 @@
 bolt-ta
 conttest
 nose
+pylint
