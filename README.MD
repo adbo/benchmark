@@ -1,7 +1,7 @@
 Todo:
-[ ] Write more tests
-[ ] Provide more docstrings
-[ ] Fix syntactical and stylistic problems (linter)
+- [ ] Write more tests
+- [ ] Provide more docstrings
+- [ ] Fix syntactical and stylistic problems (linter)
 
 Instalation:
 ```
