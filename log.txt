@@ -1,0 +1,5 @@
+
+Results:
+2019-06-25 22:06:14.984574 - Loading time of http://google.com is 0.37021493911743164.
+Loading time of http://aol.com is 1.2723746299743652.
+Loading time of http://bing.com is 0.4424295425415039.

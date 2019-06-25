@@ -1,8 +1,20 @@
-Instalation:
-pip install -r requirements.txt
+Instalation::
+    pip install -r requirements.txt
 
-Unit tests:
-bolt ut
+Unit tests::
+    bolt ut
 
-Run script:
-python src/main.py
+Configuration config.json::
+    // config.json
+    {
+        "DEFAULT": {
+            "PORT" : 465,
+            "SMTP_SERVER" : "smtp.gmail.com",
+            "SENDER_EMAIL" : "my@gmail.com",
+            "RECEIVER_EMAIL" : "your@gmail.com",
+            "PASSWORD" : "password"
+        }
+    }
+
+Run script::
+    python src/main.py

@@ -9,21 +9,21 @@ class Comparator:
         reporter = reporters.Reporter()
         rules = ComparatorExtensions(compared, competitors, reporter)
 
-        report_to_email = senders.SendWithEmail()
-        report_to_sms = senders.SendWithSms()
-        report_to_file = senders.SendToFile()
-        report_to_console = senders.ShowOnConsole()
+        send_with_email = senders.SendWithEmail()
+        send_with_sms = senders.SendWithSms()
+        save_to_file = senders.SendToFile()
+        show_on_console = senders.ShowOnConsole()
 
         if rules.rule_valid_compared():
             if rules.rule_compared_smaller():
-                report_to_email.report(reporter.format_report())
+                send_with_email.send(reporter.format_report())
 
-            if rules.rule_compared_smaller():
-                report_to_sms.report(reporter.format_report())
+            if rules.rule_compared_two_times_smaller():
+                send_with_sms.send(reporter.format_report())
 
         report = reporter.format_report()
-        report_to_file.report(report)
-        report_to_console.report(report)
+        save_to_file.send(report)
+        show_on_console.send(report)
 
 
 class ComparatorExtensions:
@@ -31,11 +31,14 @@ class ComparatorExtensions:
 
     def __init__(self, compared, competitors, reporter):
         self.compared = compared
-        self.competitors = (competitor for competitor in competitors if self.rule_valid(competitor))
+        self.competitors = (item for item in competitors if self.valid_item(item))
         self._reporter = reporter
 
-    def rule_valid(self, item):
-        return 'loading_time' in item
+    def valid_item(self, item):
+        result = 'loading_time' in item
+        if not result:
+            self._reporter.report_invalid(item)
+        return result
 
     def rule_compared_smaller(self):
         result = False
@@ -57,7 +60,7 @@ class ComparatorExtensions:
         return result
 
     def rule_valid_compared(self):
-        rule_valid = self.rule_valid(self.compared)
+        rule_valid = self.valid_item(self.compared)
         if rule_valid:
             self._reporter.report_loading_time(self.compared)
         return rule_valid

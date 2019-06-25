@@ -1,4 +1,5 @@
 """Module containing classes for sending text messages"""
+import json
 import smtplib, ssl
 
 class SendToFile:
@@ -28,23 +29,22 @@ class SendWithEmail:
     """Class sending message with email"""
 
     def send(self, message):
-        pass
+        with open('config.json', 'r') as f:
+            config = json.load(f)
 
-        # TODO: move to config file and uncomment
-        # port = 465
-        # smtp_server = "smtp.gmail.com"
-        # sender_email = "my@gmail.com"
-        # receiver_email = "your@gmail.com"
-        # password = "password"
+        port = config['DEFAULT']['PORT']
+        smtp_server = config['DEFAULT']['SMTP_SERVER']
+        sender_email = config['DEFAULT']['SENDER_EMAIL']
+        receiver_email = config['DEFAULT']['RECEIVER_EMAIL']
+        password = config['DEFAULT']['PASSWORD']
 
-        # context = ssl.create_default_context()
-        # with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-        #     server.login(sender_email, password)
-        #     server.sendmail(sender_email, receiver_email, message)
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, message)
 
 class SendWithSms:
     """Class sending with sms. Dummy implementation"""
 
     def send(self, message):
         pass
-

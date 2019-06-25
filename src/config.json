@@ -1,0 +1,10 @@
+// config.json
+{
+    "DEFAULT": {
+        "PORT" : 465,
+        "SMTP_SERVER" : "smtp.gmail.com",
+        "SENDER_EMAIL" : "my@gmail.com",
+        "RECEIVER_EMAIL" : "your@gmail.com",
+        "PASSWORD" : "password"
+    }
+}
