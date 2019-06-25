@@ -1,3 +1,8 @@
+Todo:
+[ ] Write more tests
+[ ] Provide more docstrings
+[ ] Fix syntactical and stylistic problems (linter)
+
 Instalation:
 ```
 pip install -r requirements.txt
