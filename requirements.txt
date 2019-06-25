@@ -2,3 +2,4 @@ bolt-ta
 conttest
 nose
 pylint
+requests
