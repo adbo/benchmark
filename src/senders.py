@@ -1,10 +1,10 @@
-"""Module containing classes for reporting benchmarks"""
+"""Module containing classes for sending text messages"""
 import smtplib, ssl
 
-class ReportToFile:
-    """Class reporting to file"""
+class SendToFile:
+    """Class saving to file"""
 
-    def report(self, message):
+    def send(self, message):
         #TODO - move to config file
         path = 'log.txt'
 
@@ -12,17 +12,22 @@ class ReportToFile:
             handle.write(message)
 
 
-class ReportToConsole:
-    """Class reporting to console"""
+class ShowOnConsole:
+    """Class showing text on console"""
 
-    def report(self, message):
+    def send(self, message):
+        """Print message to the console
+        
+        Args:
+            message (str): text to show
+        """
         print(message)
 
 
-class ReportToEmail:
-    """Class reporting to email"""
+class SendWithEmail:
+    """Class sending message with email"""
 
-    def report(self, message):
+    def send(self, message):
         pass
 
         # TODO: move to config file and uncomment
@@ -37,9 +42,9 @@ class ReportToEmail:
         #     server.login(sender_email, password)
         #     server.sendmail(sender_email, receiver_email, message)
 
-class ReportToSms:
-    """Class reporting to sms. Dummy implementation"""
+class SendWithSms:
+    """Class sending with sms. Dummy implementation"""
 
-    def report(self, message):
+    def send(self, message):
         pass
 
