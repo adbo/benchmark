@@ -1,3 +1,5 @@
+Application to measure loading time of our website and few other competitors. If our site is slower than one of competitors application should send email, if our site is two times slower then application should send message via sms.
+
 Todo:
 - [ ] Write more tests
 - [ ] Provide more docstrings
