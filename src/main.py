@@ -6,6 +6,8 @@ class App:
     """Class of main application"""
 
     def get_user_input(self):
+        """Methon for getting user input"""
+
         print('Benchmark of loading time of websites.')
 
         competitors = []
@@ -22,6 +24,8 @@ class App:
         self.competitors = competitors
 
     def run_benchmark(self):
+        """Method for run benchmark"""
+
         measurer = measurements.MeasureLoadingTime()
         comparator = comparators.Comparator()
 

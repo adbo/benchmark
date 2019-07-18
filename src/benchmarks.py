@@ -10,6 +10,8 @@ class Benchmark:
         self._comparator = comparator
 
     def run_benchmark(self):
+        """Method for run benchmark"""
+
         comapared_measure = self._measurer.measure(self.compared)
-        competitors_measures = (self._measurer.measure(url) for url in self.competitors)
+        competitors_measures = [self._measurer.measure(url) for url in self.competitors]
         self._comparator.compare(comapared_measure, competitors_measures)
